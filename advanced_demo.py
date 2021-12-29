@@ -11,17 +11,9 @@ df = pd.read_csv(
     'c353e8ef842413cae56ae3920b8fd78468aa4cb2/'
     'usa-agricultural-exports-2011.csv')
 
-app = Dash()
+external_stylesheets = ["https://use.fontawesome.com/releases/v5.1.0/css/all.css"]
+app = Dash(__name__, external_stylesheets=external_stylesheets, )
 app.config['suppress_callback_exceptions'] = True
-my_css_urls = [
-  "https://codepen.io/rmarren1/pen/mLqGRg.css",
-  "https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-]
-
-for url in my_css_urls:
-    app.css.append_css({
-        "external_url": url
-    })
 
 controlpanel = dui.ControlPanel(_id="controlpanel")
 controlpanel.create_section(
@@ -109,50 +101,12 @@ _style = {
     "margin-right": 2
 }
 
-menu = html.Div(
-    children=[
-        mui.IconButton(
-            tooltip="Delete Plot",
-            tooltipPosition="bottom-right",
-            iconClassName="fas fa-trash-alt",
-            touch=True,
-            iconStyle=_iconStyle,
-            style={"background": "#EBBAB9", **_style}
-        ),
-        mui.IconButton(
-            tooltip="Save Plot",
-            tooltipPosition="bottom-center",
-            iconClassName="fas fa-save",
-            touch=True,
-            iconStyle=_iconStyle,
-            style={"background": "#C9C5BA", **_style}
-        ),
-        mui.IconButton(
-            tooltip="Upload Plot to Cloud",
-            tooltipPosition="bottom-center",
-            iconClassName="fas fa-cloud-upload-alt",
-            touch=True,
-            iconStyle=_iconStyle,
-            style={"background": "#97B1A6", **_style}
-        ),
-        mui.IconButton(
-            tooltip="Download Plot to My Computer",
-            tooltipPosition="bottom-center",
-            iconClassName="fas fa-download",
-            touch=True,
-            iconStyle=_iconStyle,
-            style={"background": "#698996", **_style}
-        ),
-    ], style={"display": "flex"})
-
-grid.add_graph(col=1, row=1, width=12, height=4, graph_id="all-bar",
-               menu=menu, menu_height=32)
+grid.add_graph(col=1, row=1, width=12, height=4, graph_id="all-bar")
 grid.add_graph(col=1, row=5, width=12, height=4, graph_id="total-exports-bar")
 
 grid.add_graph(col=1, row=9, width=4, height=4, graph_id="all-pie")
 grid.add_graph(col=5, row=9, width=4, height=4, graph_id="produce-pie")
-grid.add_graph(col=9, row=9, width=4, height=4, graph_id="animal-pie",
-               menu=menu, menu_height=32)
+grid.add_graph(col=9, row=9, width=4, height=4, graph_id="animal-pie")
 
 
 app.layout = html.Div(
