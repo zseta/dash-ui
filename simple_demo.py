@@ -1,13 +1,9 @@
 from dash import Dash, html
 import dash_ui as dui
 
-app = Dash()
-my_css_urls = ["https://codepen.io/rmarren1/pen/mLqGRg.css"]
+external_stylesheets = ["https://codepen.io/rmarren1/pen/mLqGRg.css"]
+app = Dash(external_stylesheets=external_stylesheets)
 
-for url in my_css_urls:
-    app.css.append_css({
-        "external_url": url
-    })
 
 grid = dui.Grid(_id="grid", num_rows=12, num_cols=12, grid_padding=0)
 
