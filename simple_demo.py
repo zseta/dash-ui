@@ -1,8 +1,8 @@
 from dash import Dash, html
 import dash_ui as dui
 
-external_stylesheets = ["https://codepen.io/rmarren1/pen/mLqGRg.css"]
-app = Dash(external_stylesheets=external_stylesheets)
+
+app = Dash(__name__)
 
 
 grid = dui.Grid(_id="grid", num_rows=12, num_cols=12, grid_padding=0)
