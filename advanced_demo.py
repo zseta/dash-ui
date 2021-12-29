@@ -1,6 +1,4 @@
-from dash import Dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc, html, Dash
 import sd_material_ui as mui
 from dash.dependencies import Input, Output
 import dash_ui as dui

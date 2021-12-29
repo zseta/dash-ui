@@ -1,5 +1,4 @@
-from dash import Dash
-import dash_html_components as html
+from dash import Dash, html
 import dash_ui as dui
 
 app = Dash()

@@ -1,5 +1,4 @@
-import dash_html_components as html
-import dash_core_components as dcc
+from dash import dcc, html
 
 
 VALID_GRID_PADDINGS = [0, 1, 2, 5, 10, 25, 50, 100]

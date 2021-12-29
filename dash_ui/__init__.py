@@ -1,4 +1,4 @@
-import dash_html_components as html
+from dash import html
 from .grid import Grid
 from .controlpanel import ControlPanel
 
